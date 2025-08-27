@@ -16,6 +16,7 @@ from ..modules.deforum_comfyui_helpers import tensor2pil, pil2tensor
 # deforum_depth_algo = ""
 
 from ..mapping import gs
+from ..modules.interp import optical_flow_cadence
 
 
 class DeforumFILMInterpolationNode:
@@ -135,7 +136,6 @@ class DeforumSimpleInterpolationNode:
 
                 if method != "Dyna":
 
-                    from ..modules.interp import optical_flow_cadence
 
                     frames = optical_flow_cadence(self.FILM_temp[0], self.FILM_temp[1], inter_frames + 1, method)
                     # skip_first, skip_last = True, False

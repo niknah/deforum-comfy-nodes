@@ -11,6 +11,7 @@ from deforum.utils.string_utils import split_weighted_subprompts
 import comfy
 
 from ..modules.deforum_comfyui_helpers import get_current_keys, generate_seed_list
+from ..mapping import gs
 
 class DeforumIteratorNode:
     def __init__(self):
@@ -58,7 +59,6 @@ class DeforumIteratorNode:
     @torch.inference_mode()
     def get(self, deforum_data, latent_type, latent=None, init_latent=None, seed=None, subseed=None, subseed_strength=None, slerp_strength=None, reset_counter=False, reset_latent=False, enable_autoqueue=False, *args, **kwargs):
 
-        from ..mapping import gs
         if gs.reset:
             reset_counter = True
             reset_latent = True
@@ -298,7 +298,6 @@ class DeforumIteratorNode:
             self.frame_index = anim_args.max_frames
         if latent is not None:
             latent["samples"] = latent["samples"].float()
-        from ..mapping import gs
         gs.reset = False if not self.first_run else True
         enable_autoqueue = enable_autoqueue if self.frame_index == 0 else False
         gen_args["sampler_name"] = deforum_data.get("sampler_name", "euler_a")
@@ -375,7 +374,6 @@ class DeforumBigBoneResetNode:
     display_name = "Big Bone Reset Node"
 
     def get(self, reset_deforum, *args, **kwargs):
-        from ..mapping import gs
         gs.reset = reset_deforum
         # deforum_frame_data["reset"] = reset_deforum
         # deforum_frame_data["reset_latent"] = reset_deforum

@@ -1,3 +1,4 @@
+from ..mapping import gs
 
 
 class DeforumCacheLatentNode:
@@ -24,8 +25,6 @@ class DeforumCacheLatentNode:
     OUTPUT_NODE = True
 
     def cache_it(self, latent=None, cache_index=0):
-        from ..mapping import gs
-        from ..mapping import gs
         if "latent" not in gs.deforum_cache:
 
             gs.deforum_cache["latent"] = {}
@@ -58,7 +57,6 @@ class DeforumGetCachedLatentNode:
     display_name = "Load Cached Latent"
 
     def get_cached_latent(self, cache_index=0):
-        from ..mapping import gs
         if gs.reset:
             return (None,)
         latent_dict = gs.deforum_cache.get("latent", {})
@@ -90,7 +88,6 @@ class DeforumCacheImageNode:
     OUTPUT_NODE = True
 
     def cache_it(self, image=None, cache_index=0):
-        from ..mapping import gs
 
         if "image" not in gs.deforum_cache:
             gs.deforum_cache["image"] = {}
@@ -124,7 +121,6 @@ class DeforumGetCachedImageNode:
     display_name = "Load Cached Image"
 
     def get_cached_latent(self, cache_index=0):
-        from ..mapping import gs
 
         if gs.reset:
             return (None, None)
@@ -162,7 +158,6 @@ class DeforumCacheStringNode:
     OUTPUT_NODE = True
 
     def cache_it(self, input_string=None, cache_index=0):
-        from ..mapping import gs
 
         if "string" not in gs.deforum_cache:
             gs.deforum_cache["string"] = {}
@@ -195,7 +190,6 @@ class DeforumGetCachedStringNode:
     display_name = "Load Cached String"
 
     def get_cached_string(self, cache_index=0):
-        from ..mapping import gs
         img_dict = gs.deforum_cache.get("string", {})
         string = img_dict.get(cache_index)
 

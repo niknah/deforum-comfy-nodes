@@ -10,6 +10,7 @@ from deforum.pipelines.deforum_animation.animation_helpers import DeforumAnimKey
 from deforum.pipelines.deforum_animation.animation_params import RootArgs, DeforumArgs, DeforumAnimArgs, \
     DeforumOutputArgs, LoopArgs, ParseqArgs
 from deforum.utils.string_utils import substitute_placeholders
+from ..modules.deforum_comfy_sampler import sample_deforum
 
 class DeforumSingleSampleNode:
     @classmethod
@@ -116,7 +117,6 @@ class DeforumSingleSampleNode:
         # os.makedirs(args.outdir, exist_ok=True)
 
         def generate(*args, **kwargs):
-            from ..modules.deforum_comfy_sampler import sample_deforum
             image = sample_deforum(model, clip, vae, **kwargs)
 
             return image
