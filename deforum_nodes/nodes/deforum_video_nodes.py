@@ -19,7 +19,7 @@ from ..modules.deforum_comfyui_helpers import tensor2pil, pil2tensor, find_next_
 
 video_extensions = ['webm', 'mp4', 'mkv', 'gif']
 
-import moviepy.editor as mp
+import moviepy as mp
 from scipy.io.wavfile import write
 import tempfile
 

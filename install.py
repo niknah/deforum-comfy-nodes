@@ -231,20 +231,19 @@ def install_reqs():
         'gdown>=4.7.1',
         'py3d>=0.0.87',
         'librosa>=0.10.0.post2',
-        'numpy<2.0.0',
         'pydub>=0.16.5',
         'opencv-contrib-python>=4.7.0.68',
         'loguru>=0.4.0',
         'python-decouple>=3.8',
         'timm>=0.6.13',
         'scikit-image>=0.21.0',
-        'moviepy<2.0.0.dev1'
+        'moviepy'
     ])
 
     # Install deforum-studio with 'comfy' extras and no dependencies
     subprocess.check_call([
         'pip', 'install', '--no-deps',
-        'git+https://github.com/XmYx/deforum-studio.git#egg=deforum[comfy]'
+        'git+https://github.com/niknah/deforum-studio.git'
     ])
 
 
